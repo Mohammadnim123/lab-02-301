@@ -26,13 +26,19 @@
   <header>
     <h4></h4>
     <h1>The Gallery of Horns</h1>
-    <select >
-      <option class="optionClass" value="photoTemplate">Filter by Keyword</option>
+    <select id="selectFillter">
+      <option id="firstFillterOption" class="optionClass" value="photoTemplate">Filter by Keyword</option>
     </select>
-    <button id="page1">page 1</button>
-    <button id="page2">page 2</button>
+    <select id="selectSort">
+      <option class="optionClass" value="unsorted">Sort</option>
+      <option class="optionClass" value="sortedByName">Sort by Name</option>
+      <option class="optionClass" value="sortedByNumber">Sort by Number</option>
+    </select>
+
+    <button id="page1" class="pageBtn">page 1</button>
+    <button id="page2"  class="pageBtn">page 2</button>
   </header>
-  <main>
+  <main class="container ">
     <!-- <section id="photo-template">
       <h2></h2>
       <img>
