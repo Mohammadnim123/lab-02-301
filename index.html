@@ -12,6 +12,14 @@
   <link rel="stylesheet" href="css/layouts.css">
   <link rel="stylesheet" href="css/modules.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet"> 
+  <script id='horn-template' type="text/x-tmpl-mustache">
+    <section class="photoTemplate {{keyword}}" id="photo-template">
+      <h2>{{title}}</h2>
+      <img src="{{image_url}}">
+      <p>{{description}}</p>
+    </section>
+
+</script>
 </head>
 
 <body>
@@ -21,17 +29,20 @@
     <select >
       <option class="optionClass" value="photoTemplate">Filter by Keyword</option>
     </select>
+    <button id="page1">page 1</button>
+    <button id="page2">page 2</button>
   </header>
   <main>
-    <section id="photo-template">
+    <!-- <section id="photo-template">
       <h2></h2>
       <img>
       <p></p>
-    </section>
+    </section> -->
   </main>
   <footer>
     &copy; 2018 Code Fellows
   </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/4.0.1/mustache.js"></script>
   <script src="js/app.js"></script>
 </body>
 

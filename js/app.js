@@ -15,36 +15,62 @@ function Horn(image_url, title, description, keyword, horns) {
     this.horns = horns;
 }
 // $.get('./data/page-1.json')
+
 const ajaxSettings = {
     method: 'get',
     datatype: 'json'
 }
-$("button").click(function(){
-    $.ajax({url: "demo_test.txt", success: function(result){
-      $("#div1").html(result);
-    }});
+
+let wichClick = 'page-1';
+
+$( "#page1" ).click(function() {
+    wichClick = 'page-1';
+    $('main').html('')
+    takeValues()
   });
-$.ajax('./data/page-1.json', ajaxSettings)
+
+  
+  $( "#page2" ).click(function() {
+    wichClick = 'page-2';
+    $('main').html('')
+
+    takeValues()
+   });
+
+  function takeValues(){
+$.ajax(`./data/${wichClick}.json`, ajaxSettings)
     .then(data => {
+        $('main').html('')
+
         data.forEach((val, idx) => {
             let HornObject = new Horn(val.image_url, val.title, val.description, val.keyword, val.horns);
             HornObject.render();
             HornObject.renderOption();
+            console.log("second",wichClick);
+    console.log("first",wichClick);
         })
     });
+}
+takeValues()
+
 // <section id="photo-template">
 //     <h2></h2>
 //     <img src="" alt="">
 //     <p></p>
 //   </section>
 Horn.prototype.render = function () {
-    let hornClone = $('#photo-template').clone();
-    hornClone.attr('class',`photoTemplate ${this.keyword}`);
-    hornClone.removeAttr('#photo-template');
-    hornClone.find('h2').text(this.title);
-    hornClone.find('img').attr('src', this.image_url);
-    hornClone.find('p').text(this.description);
-    $('main').append(hornClone);
+    // let hornClone = $('#photo-template').clone();
+    // hornClone.attr('class',`photoTemplate ${this.keyword}`);
+    // hornClone.removeAttr('#photo-template');
+    // hornClone.find('h2').text(this.title);
+    // hornClone.find('img').attr('src', this.image_url);
+    // hornClone.find('p').text(this.description);
+    // $('main').append(hornClone);
+
+    let musTemplate = $('#horn-template').html();
+  // Mustache.render(string,object)
+  let newObj = Mustache.render(musTemplate,this);
+  $('main').append(newObj);
 };
 {/* <select>
 <option class="optionClass" value="default">Filter by Keyword</option>
