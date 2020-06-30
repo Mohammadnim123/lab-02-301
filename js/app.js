@@ -42,6 +42,7 @@ function takeValues() {
             Horn.unsorted = [];
             Horn.sortedByName = [];
             Horn.sortedByNumber = [];
+           $('form').trigger("reset");
             data.forEach((val, idx) => {
                 let HornObject = new Horn(val.image_url, val.title, val.description, val.keyword, val.horns);
                 HornObject.renderOption();
@@ -76,6 +77,7 @@ Horn.prototype.renderOption = function () {
 // ------------- For Filltering
 $("#selectFillter").change(function () {
     let selectedE = $(this).children("option:selected").val();
+    $('#f2').trigger("reset");
     $('.photoTemplate').addClass('off');
     $('.' + selectedE).removeClass('off');
 });
@@ -84,6 +86,7 @@ $("#selectFillter").change(function () {
 $("#selectSort").change(function () {
     let selectedE = $(this).children("option:selected").val();
     $('main').html('');
+    $('#f1').trigger("reset");
     if ('sortedByNumber' == selectedE) {
         render(Horn.sortedByNumber)
     }
