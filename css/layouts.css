@@ -1,0 +1,23 @@
+main section {
+    background-color: #ffc7c7;
+}
+header {
+    overflow: hidden;
+    background-color: #8785a2;
+    text-align: center;
+    padding-bottom:5px ;
+}
+
+main {
+    background-color: #ffe2e2;
+    min-height: 100vh;
+    padding: 30px 5%;
+    text-align: center;
+}
+footer{
+    text-align: center;
+    padding: 20px 0 20px 0;
+    font-size: 20px;
+    background-color: #8785a2;
+
+}
